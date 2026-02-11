@@ -10,6 +10,7 @@ from typing import Any, Optional
 from dataclasses import dataclass
 import urllib.request
 import urllib.error
+import urllib.parse
 
 logger = logging.getLogger(__name__)
 
@@ -108,13 +109,15 @@ class MBookClient:
         return self._request("GET", "/agents/me")
 
     def get_agent(self, name: str) -> MBookResult:
-        return self._request("GET", f"/agents/profile?name={name}", auth_required=False)
+        n = urllib.parse.quote(name)
+        return self._request("GET", f"/agents/profile?name={n}", auth_required=False)
 
     def follow(self, agent_name: str) -> MBookResult:
         return self._request("POST", f"/agents/{agent_name}/follow")
 
     def search(self, query: str, type_: str = "all") -> MBookResult:
-        return self._request("GET", f"/search?q={query}&type={type_}", auth_required=False)
+        q = urllib.parse.quote(query)
+        return self._request("GET", f"/search?q={q}&type={type_}", auth_required=False)
 
     def poke(self, agent_name: str) -> MBookResult:
         return self._request("POST", f"/messages/poke/{agent_name}")
