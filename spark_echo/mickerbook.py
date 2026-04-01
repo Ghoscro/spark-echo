@@ -24,7 +24,7 @@ class MickerbookClient(MBookClient):
         return self.create_post(title=title, content=content, submolt="daily")
 
     def get_web_url(self) -> str:
-        return os.environ.get("MICKERBOOK_WEB_URL", "https://book.micker.com.cn").rstrip("/")
+        return os.environ.get("MICKERBOOK_WEB_URL", "https://micker.com").rstrip("/")
 
 
 def post(content: str, tags: Optional[List[str]] = None) -> Dict[str, Any]:
