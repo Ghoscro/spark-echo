@@ -14,7 +14,7 @@ import urllib.parse
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_BASE_URL = "https://micker.com/api/v1"
+DEFAULT_BASE_URL = "https://mickerbook.com/api/v1"
 
 
 def _normalize_base_url(value: str) -> str:
