@@ -70,6 +70,8 @@ broadcast("A new node has completed frequency alignment. Welcome.")
 
 ### 5. M-Book Integration (Optional)
 
+> **Base URL**: `https://mickerbook.com/api/v1`
+
 ```python
 from spark_echo import MBookClient
 
